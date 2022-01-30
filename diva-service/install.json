@@ -1,0 +1,62 @@
+{
+    "general": {
+        "name": "Printed Handwritten Segmentation",
+        "description": "pixelwise printed and handwritten segmentation using a lightweight FCN and CRF post-processing",
+        "developer": "Nicolas Dutly",
+        "affiliation": "University Of Fribourg",
+        "email": "nicolas.dutly@unifr.ch",
+        "author": "Nicolas Dutly",
+        "DOI": "",
+        "type": "segmentation",
+        "license": "MIT",
+        "ownsCopyright": "1"
+    },
+    "input": [
+        {
+            "file": {
+                "name": "inputImage",
+                "description": "The input image to segment",
+                "options": {
+                    "required": true,
+                    "mimeTypes": {
+                        "allowed": [
+                            "image/jpeg",
+                            "image/png"
+                        ],
+                        "default": "image/png"
+                    }
+                }
+            }
+        },
+        {
+            "outputFolder": {}
+        }
+    ],
+    "output": [
+        {
+            "file": {
+                "name": "outputSegmented",
+                "type": "image",
+                "description": "Generated Segmented Image",
+                "options": {
+                    "mimeTypes": {
+                        "allowed": [
+                            "image/png"
+                        ],
+                        "default": "image/png"
+                    },
+                    "colorspace": "binary",
+                    "visualization": true
+                }
+            }
+        }
+    ],
+    "method": {
+				"inputFolder": "input/",
+        "imageType": "docker",
+        "imageName": "jumpst3r/printed-hw-segmentation",
+        "testData": "https://drive.google.com/uc?export=download&id=1Q9F5rUN93xTWnRxRB8g4eGXLYZzdDUnR",
+        "executableType": "bash",
+        "executable_path": "/input/script.sh"
+    }
+}
